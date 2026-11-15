@@ -1,0 +1,143 @@
+/* 1. 背景图固定 */
+body {
+    background-color: rgba(255, 255, 255, 0.2) !important; 
+    background-blend-mode: overlay;
+    background-image: url('/img/sky.jpg') !important; 
+    background-attachment: fixed !important; 
+    background-size: cover !important;
+    background-position: center top !important;
+}
+
+/* =========================================
+   2. 【核心】恢复首页全屏大图，文章页固定高度
+   ========================================= */
+/* 恢复首页全屏高度（100vh），这样文字才能居中，背景才能铺满 */
+#page-header.full_page {
+    height: 100vh !important; 
+}
+
+/* 文章页保持你刚才那种适中的高度 */
+#page-header.post-bg {
+    height: 400px !important; 
+}
+
+/* 强制让顶部大图跟随背景图固定，解决接缝问题 */
+#page-header::before {
+    background-image: url('/img/sky.jpg') !important;
+    background-attachment: fixed !important;
+    background-size: cover !important;
+    background-position: center top !important;
+    background-color: transparent !important;
+    opacity: 1 !important;
+}
+
+/* 确保顶部文字不被其他样式遮挡 */
+#page-header #site-title, 
+#page-header #site-subtitle {
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6) !important; 
+    display: block !important;
+    opacity: 1 !important;
+}
+
+/* =========================================
+   3. 【修复】恢复导航栏的透明和滚动变色效果
+   ========================================= */
+/* 取消之前强制的透明，让主题自带的 JS 控制滚动变色生效 */
+#page-header {
+    box-shadow: none !important;
+    border-bottom: none !important;
+}
+/* 当处于最顶端时，导航栏透明 */
+#page-header:not(.nav-fixed) #nav {
+    background: transparent !important;
+}
+/* 当往下滚动时，导航栏变白 */
+#page-header.nav-fixed #nav {
+    background: rgba(255, 255, 255, 0.9) !important;
+    backdrop-filter: blur(10px) !important;
+}
+
+/* 4. 内容区透明 */
+#page {
+    background: transparent !important;
+    box-shadow: none !important;
+}
+#content-inner,
+.recent-post-item,
+.card-widget {
+    background: rgba(255, 255, 255, 0.6) !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.5) !important;
+}
+
+/* 5. 页脚透明 */
+#footer, #footer-wrap, .footer-bg {
+    background: transparent !important; 
+    background-image: none !important;
+}
+#footer, #footer *, #footer a {
+    color: #333 !important; 
+    font-weight: 500 !important;
+}
+
+/* 6. 翻页毛玻璃（保留） */
+#pagination .pagination-related { background: transparent !important; box-shadow: none !important; }
+#pagination .info {
+    background: linear-gradient(135deg, rgba(200, 230, 255, 0.5), rgba(220, 210, 255, 0.5)) !important;
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
+    border: 1.5px solid rgba(255, 255, 255, 0.9) !important;
+    border-radius: 16px;
+    padding: 40px 30px !important;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2) !important;
+    transition: all 0.3s;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+#pagination .info * { color: #1a1a1a !important; }
+#pagination .info-item-2 { font-size: 1.3rem !important; font-weight: bold !important; margin-top: 8px; }
+#pagination .info-item-1 { font-size: 0.9rem !important; color: #555 !important; }
+#pagination .info.text-right { text-align: right !important; }
+#pagination .info:not(.text-right) { text-align: left !important; }
+#pagination .info:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.3) !important;
+    background: linear-gradient(135deg, rgba(200, 230, 255, 0.7), rgba(220, 210, 255, 0.7)) !important;
+}
+
+/* 7. 底部向下滚动箭头（修复刚才的居中问题） */
+#page-header::after {
+    content: '\f107';
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 2rem;
+    color: #fff;
+    opacity: 0.8;
+    animation: bounce 2s infinite;
+}
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+    40% { transform: translateX(-50%) translateY(-15px); }
+    60% { transform: translateX(-50%) translateY(-7px); }
+}
+
+/* 8. 深色模式适配 */
+[data-theme="dark"] body { background-color: rgba(0, 0, 0, 0.6) !important; }
+[data-theme="dark"] #page { background: transparent !important; }
+[data-theme="dark"] #content-inner,
+[data-theme="dark"] .recent-post-item,
+[data-theme="dark"] .card-widget {
+    background: rgba(30, 30, 30, 0.6) !important;
+    border-color: rgba(255, 255, 255, 0.1) !important;
+}
+[data-theme="dark"] #footer, 
+[data-theme="dark"] #footer *, 
+[data-theme="dark"] #footer a { color: #eee !important; }

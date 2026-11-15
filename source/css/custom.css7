@@ -1,0 +1,146 @@
+/* =========================================
+   1. 全站唯一的一张背景图（彻底解决割裂感）
+   ========================================= */
+body {
+    /* 关键：这会让整个网页只有这一张背景底图，并固定不动 */
+    background: url('/img/sky.jpg') no-repeat center center fixed !important; 
+    background-size: cover !important;
+    background-color: transparent !important;
+}
+
+/* =========================================
+   2. 让顶部变成“透明的玻璃”，透出 body 的底图
+   ========================================= */
+#page-header {
+    background-color: transparent !important;
+    box-shadow: none !important;
+    border-bottom: none !important;
+}
+
+/* 彻底干掉顶部自带的独立背景，让它们全透明 */
+#page-header::before, 
+#page-header::after,
+#page-header.post-bg,
+#page-header.full_page {
+    background: transparent !important;
+    background-image: none !important;
+}
+
+/* 顶部的文字加阴影，避免混在云里 */
+#page-header #site-title, 
+#page-header #site-subtitle,
+#page-header .post-meta {
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6) !important; 
+}
+
+/* =========================================
+   3. 文章页与侧边栏卡片（高级毛玻璃，拒绝假白）
+   ========================================= */
+#page {
+    background: transparent !important;
+    box-shadow: none !important;
+}
+#content-inner {
+    background: transparent !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+}
+
+/* 文章卡片、目录、侧边栏都用同一种通透的毛玻璃 */
+#post,
+#toc,
+.card-widget,
+.recent-post-item {
+    background: rgba(255, 255, 255, 0.45) !important; /* 透明度调到0.45，透出背景图 */
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+    border-radius: 16px !important;
+    border: 1px solid rgba(255, 255, 255, 0.6) !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* =========================================
+   4. 翻页：精致双卡片布局（解决大长条问题）
+   ========================================= */
+/* 隐藏原版丑陋图片 */
+#pagination img.cover, 
+#pagination .cover {
+    display: none !important;
+}
+
+/* 把翻页容器变成一个居中的 Flex 布局 */
+#pagination .pagination-post {
+    display: flex !important;
+    justify-content: center !important;
+    gap: 20px !important; /* 两个卡片之间的间距 */
+    background: transparent !important;
+}
+
+/* 外层链接外壳完全透明 */
+#pagination .pagination-related {
+    background: transparent !important;
+    box-shadow: none !important;
+    /* 限制宽度，不再让它无限拉长 */
+    width: calc(50% - 10px) !important; 
+    max-width: 400px !important; /* 最大宽度限制，防止大屏上太夸张 */
+    margin: 0 !important; 
+}
+
+/* 如果只有一篇（上一页或下一页单独存在），就让它在中间占据适中的宽度 */
+#pagination .pagination-related.full-width {
+    width: 100% !important;
+    max-width: 500px !important;
+}
+
+/* 内层文字盒子的毛玻璃 */
+#pagination .info {
+    background: rgba(255, 255, 255, 0.6) !important; 
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+    border-radius: 16px !important;
+    border: 1px solid rgba(255, 255, 255, 0.8) !important;
+    padding: 25px 30px !important;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1) !important;
+    transition: all 0.3s ease;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    width: 100% !important;
+}
+
+/* 翻页文字修正 */
+#pagination .info * { color: #222 !important; }
+#pagination .info-item-1 { font-size: 0.9rem !important; color: #666 !important; margin-bottom: 5px; }
+#pagination .info-item-2 { font-size: 1.2rem !important; font-weight: bold !important; }
+#pagination .info.text-right { text-align: right !important; }
+#pagination .info:not(.text-right) { text-align: left !important; }
+
+/* 鼠标放上去，微微浮起 */
+#pagination .pagination-related:hover .info {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.85) !important;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* =========================================
+   5. 底部与导航栏
+   ========================================= */
+#footer, #footer-wrap, .footer-bg {
+    background: transparent !important; 
+    border-top: 1px solid rgba(255,255,255,0.3) !important;
+}
+#footer, #footer *, #footer a {
+    color: #222 !important; 
+    text-shadow: 1px 1px 3px rgba(255,255,255,0.5);
+}
+
+/* 顶部导航栏（未滚动时透明，滚动时毛玻璃） */
+#page-header:not(.nav-fixed) #nav {
+    background: transparent !important;
+    box-shadow: none !important;
+}
+#page-header.nav-fixed #nav {
+    background: rgba(255, 255, 255, 0.7) !important;
+    backdrop-filter: blur(10px) !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1) !important;
+}

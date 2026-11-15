@@ -1,0 +1,147 @@
+/* =========================================
+   1. 全站背景与无缝顶部
+   ========================================= */
+body {
+    background: url('/img/sky.jpg') no-repeat center center fixed !important; 
+    background-size: cover !important;
+}
+#page-header, #page-header::before, #page-header.post-bg, #page-header.full_page {
+    background: transparent !important;
+    background-image: none !important;
+    box-shadow: none !important;
+    border-bottom: none !important;
+}
+#page-header #site-title, #page-header #site-subtitle, #page-header .post-meta {
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6) !important; 
+}
+
+/* =========================================
+   2. 内容区透明与毛玻璃
+   ========================================= */
+#page, #content-inner {
+    background: transparent !important;
+    box-shadow: none !important;
+}
+#post, #toc, .card-widget, .recent-post-item {
+    background: rgba(255, 255, 255, 0.5) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+    border-radius: 16px !important;
+    border: 1px solid rgba(255, 255, 255, 0.6) !important;
+}
+
+
+/* =========================================
+   3. 【极致毛玻璃】翻页
+   ========================================= */
+/* 隐藏图片 */
+#pagination img.cover,
+#pagination .cover {
+    display: none !important;
+}
+
+/* 把整个外壳变成半透明的冰蓝毛玻璃 */
+#pagination .pagination-related {
+    /* 关键点：把纯白改成带一点点蓝色的半透明，透明度降到 0.3 */
+    background: rgba(200, 225, 255, 0.3) !important;
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
+    border-radius: 16px !important;
+    /* 增加高光白色边框，提升玻璃质感 */
+    border: 1px solid rgba(255, 255, 255, 0.8) !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1) !important;
+
+    display: block !important;
+    max-width: 600px !important;
+    margin: 0 auto !important;
+    float: none !important;
+    text-align: center !important;
+    transition: all 0.3s ease;
+}
+
+/* 鼠标悬停时稍微亮一点，方便看字，并微微上浮 */
+#pagination .pagination-related:hover {
+    background: rgba(200, 225, 255, 0.5) !important;
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* 内层文字框透明 */
+#pagination .info {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 25px !important;
+}
+
+/* 文字颜色（加深防止在半透明上看不清） */
+#pagination .info * {
+    color: #1a1a1a !important;
+}
+#pagination .info-item-1 {
+    font-size: 0.9rem !important;
+    color: #555 !important;
+    font-weight: bold;
+    display: block;
+}
+#pagination .info-item-2 {
+    font-size: 1.2rem !important;
+    font-weight: 900 !important;
+    margin-top: 5px;
+    display: block;
+}
+
+/* 摘要折叠展开 */
+#pagination .info-2 {
+    display: none;
+    width: 100%;
+}
+#pagination .pagination-related:hover .info-2 {
+    display: block;
+    margin-top: 15px !important;
+    padding-top: 15px;
+    border-top: 1px dashed rgba(0, 0, 0, 0.2);
+}
+#pagination .info-2 .info-item-1 {
+    font-size: 0.9rem !important;
+    color: #333 !important;
+    line-height: 1.6 !important;
+    font-weight: normal !important;
+}
+
+
+
+/* =========================================
+   4. 【彻底修复】底部页脚透明
+   ========================================= */
+/* 把页脚所有的外层、伪元素、背景色全部干掉 */
+#footer, 
+#footer-wrap, 
+#footer .footer-bg,
+#footer::before, 
+#footer::after {
+    background: transparent !important; 
+    background-color: transparent !important;
+    background-image: none !important;
+    box-shadow: none !important;
+    border-top: none !important;
+}
+
+/* 页脚文字改为黑色 */
+#footer, #footer *, #footer a {
+    color: #333 !important; 
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8); /* 防止背景太深看不清 */
+}
+
+/* =========================================
+   5. 导航栏
+   ========================================= */
+#page-header:not(.nav-fixed) #nav {
+    background: transparent !important;
+    box-shadow: none !important;
+}
+#page-header.nav-fixed #nav {
+    background: rgba(255, 255, 255, 0.7) !important;
+    backdrop-filter: blur(10px) !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1) !important;
+}

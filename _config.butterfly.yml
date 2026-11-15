@@ -1,0 +1,379 @@
+# --------------------------------------
+# 导航栏设置
+# --------------------------------------
+nav:
+  logo: # 左上角 logo 图片路径（默认无）
+  display_title: true # 是否显示网站标题
+  display_post_title: true # 是否在文章页显示文章标题
+  fixed: true # 导航栏是否固定在顶部（滚动时不动）
+
+menu:
+  # 格式：名称: 链接 || 图标
+  主页: / || fas fa-home # 首页链接
+  归档: /archives/ || fas fa-archive # 归档页面
+  标签: /tags/ || fas fa-tags # 标签页面
+  分类: /categories/ || fas fa-folder-open # 分类页面
+
+# --------------------------------------
+# 代码块设置
+# --------------------------------------
+code_blocks:
+  theme: light # 代码主题色：light(亮色) / darker(暗色)
+  macStyle: true # 是否开启 Mac 窗口红黄绿小圆点样式
+  height_limit: false # 代码块高度限制(px)，false 为不限制
+  word_wrap: false # 代码是否自动换行
+  copy: true # 是否显示复制按钮
+  language: true # 是否显示代码语言名称
+  shrink: false # 代码块是否默认折叠
+  fullpage: false # 是否显示全屏按钮
+
+# --------------------------------------
+# 社交图标
+# --------------------------------------
+social:
+  # 格式：图标: 链接 || 提示文字 || 颜色
+  fab fa-github: https://github.com/MrZnn || Github || '#24292e' # 你的 GitHub 链接
+
+# --------------------------------------
+# 图片设置
+# --------------------------------------
+favicon: https://cdn.jsdelivr.net/gh/jerryc127/hexo-theme-butterfly@master/source/img/favicon.png # 浏览器标签页的小图标
+
+avatar:
+  img:  # 侧边栏头像图片链接
+  effect: true # 头像是否一直旋转（鼠标放上去会转）
+
+disable_top_img: false # 是否关闭所有顶部大图
+
+default_top_img: /img/sky.jpg # 默认顶部大图（首页和文章都会用）
+index_img: /img/sky.jpg # 单独设置首页顶部图（优先级高于 default_top_img）
+archive_img: /img/sky.jpg# 归档页顶部图
+tag_img: /img/sky.jpg # 标签页顶部图
+category_img: /img/sky.jpg/img/sky.jpg  # 分类页顶部图
+footer_img: false  # 页脚背景图（一般设为 false）
+
+background: /img/sky.jpg # 网站背景（纯色或图片），例如 '#f4f4f4' 或图片链接
+
+cover:
+  index_enable: true # 首页文章卡片是否显示封面图
+  aside_enable: true # 侧边栏文章卡片是否显示封面图
+  archives_enable: true # 归档页文章卡片是否显示封面图
+  default_cover:
+    # 如果文章没设置封面图，默认使用的图
+
+error_img: # 错误页面图片（已换成网络图防报错）
+  flink: https://cdn.jsdelivr.net/gh/jerryc127/hexo-theme-butterfly@master/source/img/friend_404.gif # 友链页 404 图
+  post_page: https://cdn.jsdelivr.net/gh/jerryc127/hexo-theme-butterfly@master/source/img/404.jpg # 文章页 404 图
+
+# 文章卡片上的信息显示设置
+post_meta:
+  page: # 首页文章卡片
+    date_type: created # 显示创建日期(created)还是更新日期(updated)
+    date_format: date # 显示具体日期(date)还是相对时间(relative)
+    categories: true # 是否显示分类
+    tags: false # 是否显示标签
+    label: true # 是否显示文字标签（如"发表于"）
+  post: # 文章详情页
+    position: left # 文章信息位置：left / center
+    date_type: both # 同时显示创建和更新日期
+    date_format: date # 显示具体日期
+    categories: true # 是否显示分类
+    tags: true # 是否显示标签
+    label: true # 是否显示文字标签
+
+# --------------------------------------
+# 首页设置
+# --------------------------------------
+index_site_info_top: # 首页网站信息距离顶部的距离
+#index_top_img_height: 350px # 首页顶部大图的高度（可写 100vh 或 400px）
+index_top_img_height:  # 首页顶部大图的高度（可写 100vh 或 400px）
+
+subtitle: # 首页副标题（打字机效果）
+  enable: true # 是否开启副标题
+  effect: true # 是否使用打字机特效
+  typed_option: # 打字机参数
+  source: false # 是否调用一言API（false为关闭）
+  sub: # 副标题内容，可以写多行轮流显示
+    - 记录生活，分享技术。
+    - Hello World, Hello MrZnn.
+
+index_layout: 3 # 首页排版：3 为左右交替排列，4 为上下排列
+
+index_post_content: # 首页文章摘要
+  method: 3 # 3为自动截取，1为按描述的md，2为两者结合
+  length: 200 # 自动截取的长度
+
+# --------------------------------------
+# 文章页设置
+# --------------------------------------
+toc: # 文章目录（TOC）
+  post: true # 文章页是否开启
+  page: false # 独立页面是否开启
+  number: true # 是否显示章节编号
+  expand: false # 是否默认展开所有目录层级
+  style_simple: true # 简洁模式（只显示目录，不显示标题）
+  scroll_percent: true # 是否显示阅读进度条
+
+post_copyright: # 文章底部版权信息
+  enable: false # 是否开启
+  decode: false # 是否开启文章链接防复制（false为关闭）
+  author_href: # 作者主页链接（默认当前网站）
+  license: CC BY-NC-SA 4.0 # 协议名称
+  license_url: https://creativecommons.org/licenses/by-nc-sa/4.0/ # 协议链接
+
+reward: # 赞赏功能
+  enable: false # 是否开启（一般 false）
+
+post_edit: # 文章编辑按钮
+  enable: false # 是否开启（写了链接才会显示）
+
+related_post: # 相关推荐
+  enable: true # 是否开启
+  limit: 6 # 推荐几篇
+  date_type: created # 按创建日期推荐
+
+post_pagination: 1 # 上一篇/下一篇：1 为旧文章，2 为新文章，false 为关闭
+
+noticeOutdate: # 文章过期提醒
+  enable: false # 是否开启
+
+# --------------------------------------
+# 页脚设置
+# --------------------------------------
+footer:
+  nav: # 页脚导航（默认无）
+  owner: # 底部版权所有者
+    enable: true
+    since: 2026 # 建站年份
+  copyright: # 主题和框架版权
+    enable: true
+    version: true # 是否显示 Hexo 版本
+  custom_text: "热爱生活，热爱代码。" # 自定义文字
+
+# --------------------------------------
+# 侧边栏设置
+# --------------------------------------
+aside:
+  enable: true # 是否开启侧边栏
+  hide: false # 默认是否隐藏
+  button: true # 右下角是否显示隐藏侧边栏按钮
+  mobile: true # 手机端是否显示侧边栏
+  position: right # 侧边栏位置：right / left
+  display:
+    archive: true # 侧边栏归档小图标
+    tag: true # 侧边栏标签小图标
+    category: true # 侧边栏分类小图标
+  card_author: # 作者卡片
+    enable: true
+    description: 欢迎来到我的博客！
+    button:
+      enable: true
+      icon: fab fa-github
+      text: 关注我
+      link: https://github.com/MrZnn # 已改成你的 GitHub
+  card_announcement: # 公告卡片
+    enable: true
+    content: 这是 MrZnn 的个人博客，欢迎常来！
+  card_recent_post: # 最新文章卡片
+    enable: true
+    limit: 5 # 显示几篇
+    sort: date
+    sort_order:
+  card_categories: # 分类卡片
+    enable: true
+    limit: 8 # 显示几个分类
+    expand: none # 是否展开
+    sort_order:
+  card_tags: # 标签卡片
+    enable: true
+    limit: 40 # 显示几个标签
+    color: true # 标签是否带随机颜色
+    custom_colors:
+    orderby: random # 标签排序方式：random/length/name
+    order: 1
+    sort_order:
+  card_archives: # 归档卡片
+    enable: true
+    type: monthly # 按月份(monthly)或年份(yearly)归档
+    format: MMMM YYYY
+    order: -1 # 倒序
+    limit: 8
+    sort_order:
+  card_webinfo: # 网站信息卡片
+    enable: true
+    post_count: true # 显示文章总数
+    last_push_date: true # 显示最后更新日期
+    sort_order:
+    runtime_date: 11/15/2026 # 建站日期（格式：月/日/年）
+
+# --------------------------------------
+# 右下角按钮设置
+# --------------------------------------
+rightside_bottom: # 距离底部的距离
+readmode: true # 是否开启阅读模式（沉浸式阅读）
+
+canvas_ribbon:
+  enable: true
+  size: 150
+  alpha: 0.6
+  zIndex: -1
+  click_to_change: false
+  mobile: false
+
+darkmode:
+  enable: true # 是否开启深色模式
+  button: true # 右下角是否显示切换按钮
+  autoChangeMode: false # 是否根据时间自动切换深色模式
+
+rightside_scroll_percent: true # 右下角回到顶部按钮显示阅读进度
+
+rightside_item_order: # 右下角按钮顺序
+  enable: false
+
+rightside_config_animation: true # 按钮动画
+
+# --------------------------------------
+# 全局设置
+# --------------------------------------
+anchor: # 标题锚点设置
+  auto_update: false
+  click_to_scroll: false
+
+photofigcaption: false # 图片说明
+
+copy: # 复制设置
+  enable: true
+  copyright: # 复制超过一定字数自动加版权声明
+    enable: false
+    limit_count: 150
+
+wordcount: # 字数统计
+  enable: true # 开启
+  post_wordcount: true # 文章页显示字数
+  min2read: true # 显示阅读所需时间
+  total_wordcount: true # 侧边栏显示总字数
+
+busuanzi: # 不蒜子（页面访问量统计）
+  site_uv: true # 本站总访客数
+  site_pv: true # 本站总访问量
+  page_pv: true # 本文阅读量
+
+# --------------------------------------
+# 搜索 (本地搜索，需要安装插件)
+# --------------------------------------
+search: # 搜索功能
+  use: local_search # 使用本地搜索
+  placeholder: 搜索文章...
+  local_search:
+    preload: false # 预加载
+    top_n_per_article: 1 # 显示几个结果
+    unescape: false # 特殊字符处理
+
+# --------------------------------------
+# 分享
+# --------------------------------------
+share: # 分享功能
+  use: sharejs
+  sharejs:
+    sites: wechat,qq # 分享的平台
+
+# --------------------------------------
+# 评论系统 (暂时留空，以后可以自己加 Twikoo 或 Waline)
+# --------------------------------------
+comments: # 评论功能
+  use: # 留空则关闭
+  text: true # 显示评论系统名称
+  lazyload: false # 懒加载
+  count: false # 显示评论数
+  card_post_count: false # 首页卡片显示评论数
+
+# --------------------------------------
+# 美化设置
+# --------------------------------------
+theme_color: # 全局主题色
+  enable: true
+  main: "#49B1F5" # 主色（导航栏、链接等）
+  paginator: "#00c4b6" # 分页颜色
+  button_hover: "#FF7242" # 按钮悬停颜色
+  text_selection: "#00c4b6" # 鼠标选中文字的颜色
+  link_color: "#99a9bf"
+  meta_color: "#858585" # 次要信息颜色
+  hr_color: "#A4D8FA" # 分割线颜色
+  code_foreground: "#F47466" # 行内代码文字颜色
+  code_background: "rgba(27, 31, 35, .05)" # 行内代码背景色
+  toc_color: "#00c4b6" # 目录颜色
+  blockquote_padding_color: "#49b1f5" # 引用块左边线颜色
+  blockquote_background_color: "#49b1f5" # 引用块背景色
+
+category_ui: # 分类页 UI 设置
+tag_ui: # 标签页 UI 设置
+rounded_corners_ui: true # 全局 UI 元素（卡片等）是否圆角
+text_align_justify: false # 文章内容是否两端对齐
+
+mask: # 页眉页脚遮罩
+  header: false
+  footer: true
+
+preloader: # 加载动画
+  enable: false
+
+enter_transitions: true # 页面切换动画
+display_mode: light # 默认模式：light / dark
+
+font: # 全局字体
+  global_font_size:
+  code_font_size:
+  font_family:
+  code_font_family:
+
+blog_title_font: # 博客标题字体
+  font_link:
+  font_family:
+
+hr_icon: # 分割线图标
+  enable: true
+  icon:
+  icon_top:
+
+click_heart: # 鼠标点击爱心特效
+  enable: true
+  mobile: false # 手机端关闭
+
+# --------------------------------------
+# 其他设置
+# --------------------------------------
+pjax: # 页面无刷新加载
+  enable: false
+
+snackbar: # 弹窗提示
+  enable: false
+
+instantpage: false # 预加载页面
+
+lazyload: # 图片懒加载
+  enable: true
+  native: true # 使用浏览器自带的懒加载
+  field: site
+  placeholder:
+
+Open_Graph_meta: # 社交媒体分享卡片优化
+  enable: true
+
+css_prefix: true # 自动加浏览器前缀
+
+inject: # 注入自定义代码（如统计脚本）
+  head: # 插入到 </head> 前
+    #- <style>
+    # --- 保留下来的 body 和 footer 设置 ---
+    #- "#footer { background: rgba(0,0,0,0.4) !important; backdrop-filter: blur(5px); color: #fff !important; }"
+    #- "#footer a { color: #fff !important; }"
+    #- "body { background-color: rgba(255, 255, 255, 0.85) !important; background-blend-mode: overlay; }"
+
+    - <link rel="stylesheet" href="/css/custom.css">
+    #- </style>
+  bottom: # 插入到 </body> 前
+
+CDN: # CDN 设置
+  internal_provider: local # 内部文件使用本地
+  third_party_provider: jsdelivr # 第三方库使用 jsdelivr
+  version: true # 使用带版本号的链接
